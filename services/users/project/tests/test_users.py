@@ -31,6 +31,5 @@ class TestUserService(BaseTestCase):
             self.assertIn('michael@mherman.org was added!', data['message'])
             self.assertIn('success', data['status'])
 
-
 if __name__ == '__main__':
     unittest.main()
