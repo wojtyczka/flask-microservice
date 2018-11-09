@@ -3,8 +3,8 @@ from project import db
 from project.api.models import User
 from sqlalchemy import exc
 
-
 users_blueprint = Blueprint('users', __name__)
+
 
 @users_blueprint.route('/users/ping', methods=['GET'])
 def ping_pong():
@@ -12,6 +12,7 @@ def ping_pong():
         'status': 'success',
         'message': 'pong!'
     })
+
 
 @users_blueprint.route('/users', methods=['POST'])
 def add_user():
@@ -40,6 +41,7 @@ def add_user():
         db.session.rollback()
         return jsonify(response_object), 400
 
+
 @users_blueprint.route('/users/<user_id>', methods=['GET'])
 def get_single_user(user_id):
     """Get single user details"""
@@ -54,7 +56,7 @@ def get_single_user(user_id):
                 'active': user.active
             }
         }
-    except:
+    except Exception as e:
         response_object = {
             'status': 'fail',
             'message': 'User does not exist'
@@ -62,6 +64,7 @@ def get_single_user(user_id):
         return jsonify(response_object), 404
 
     return jsonify(response_object), 200
+
 
 @users_blueprint.route('/users', methods=['GET'])
 def get_all_users():

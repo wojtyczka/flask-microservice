@@ -5,11 +5,13 @@ from project.tests.base import BaseTestCase
 from project.api.users import User
 from project import db
 
+
 def add_user(username, email):
     user = User(email=email, username=username)
     db.session.add(user)
     db.session.commit()
     return user
+
 
 class TestUserService(BaseTestCase):
     """Tests for the Users Service."""
@@ -138,8 +140,6 @@ class TestUserService(BaseTestCase):
             self.assertIn(
                 'fletcher@notreal.com', data['data']['users'][1]['email'])
             self.assertIn('success', data['status'])
-
-
 
 
 if __name__ == '__main__':

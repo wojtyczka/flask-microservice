@@ -5,6 +5,7 @@ import os
 # instantiate the db
 db = SQLAlchemy()
 
+
 def create_app(script_info=None):
 
     # instantiate the app
@@ -27,4 +28,3 @@ def create_app(script_info=None):
         return {'app': app, 'db': db}
 
     return app
-
