@@ -20,6 +20,7 @@ def create_app(script_info=None):
 
     # set up extensions
     db.init_app(app)
+    app.debug = True
     toolbar.init_app(app)
 
     # register blueprints
