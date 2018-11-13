@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/sendix/PycharmProjects/testdriven-app/venv"
+set -gx VIRTUAL_ENV "/home/sendix/PycharmProjects/flask-microservice/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
